@@ -1,0 +1,28 @@
+<%= form_with model: task do |form| %>
+    <div>
+        <%= form.label :taskname %><br>
+        <%= form.text_field :taskname %>
+        <% task.errors.full_messages_for(:taskname).each do |message| %>
+
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :description %><br>
+        <%= form.text_field :description %><br>
+        <% task.errors.full_messages_for(:description).each do |message| %>
+
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= form.label :status %><br>
+        <%= form.select :status, [ 'urgent', 'noncritical' ], selected: 'urgent' %>
+
+
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
